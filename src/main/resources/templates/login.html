@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Login - Personalized IMDB</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous"/>
+</head>
+<body>
+<div class="container-fluid text-center">
+    <div>
+        <img class="img-fluid" th:src="@{/images/images.jpg}" />
+    </div>
+    <p th:if="${loginError}" class="error">Wrong user or password</p>
+
+    <form th:action="@{/login-successful}" th:object="${user}" method="post" style="max-width: 350px; margin: 0 auto;">
+
+        <div class="border border-secondary p-3 rounded">
+            <p>Access to Personalized IMDB</p>
+            <label for="email">Email</label>
+            <p>
+                <input type="email" id="email" name="email" class="form-control" placeholder="E-mail" required autofocus/>
+            </p>
+            <label for="password">Password</label>
+            <p>
+                <input type="password" name="password" id="password" class="form-control" placeholder="Password" required/>
+            </p>
+            <p>
+                <input type="submit" value="Login" class="btn btn-primary"/>
+            </p>
+        </div>
+    </form>
+
+</div>
+</body>
+</html>
